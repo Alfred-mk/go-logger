@@ -17,8 +17,7 @@ func init() {
  
 	var logFile string
 
-	// Concatenating strings
-    // Using + operator
+	// Create the dynamic file based on the current date
 	logFile = "go-logger-" + currentTime.Format("2006-01-02") + ".log"
 
 	file, err := os.OpenFile(logFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)

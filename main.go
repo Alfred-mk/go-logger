@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"log"
+    "time"
 )
 
 var (
@@ -12,7 +13,15 @@ var (
 )
 
 func init() {
-	file, err := os.OpenFile("go-logger.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+    currentTime := time.Now()
+ 
+	var logFile string
+
+	// Concatenating strings
+    // Using + operator
+	logFile = "go-logger-" + currentTime.Format("2006-01-02") + ".log"
+
+	file, err := os.OpenFile(logFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
     if err != nil {
         log.Fatal(err)
     }
